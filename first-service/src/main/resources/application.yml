@@ -1,0 +1,18 @@
+# \uC2A4\uCF00\uC77C \uC544\uC6C3 \uC0C1\uD669\uC5D0\uC11C \uB79C\uB364\uD558\uAC8C 5~6\uB9CC\uBC88 \uB300\uC758 \uD3EC\uD2B8\uBC88\uD638\uB97C \uBD80\uC5EC \uBC1B\uC744 \uC218 \uC788\uB3C4\uB85D \uBA85\uC2DC\uC801 \uC791\uC131 X
+server:
+  port: 0
+spring:
+  application:
+    name: 1st-service
+eureka:
+  # \uD3EC\uD2B8 \uBC88\uD638\uAC00 \uB3D9\uC77C\uD558\uBA74 Eureka Server UI \uC5D0\uC11C \uAD6C\uBCC4 \uB418\uC9C0 \uC54A\uC73C\uBBC0\uB85C \uBCC4\uB3C4\uC758 id \uBD80\uC5EC
+  instance:
+    instance-id: ${spring.application.name}:${spring.instance.instance-id:${random.value}}
+  client:
+    # Eureka Server \uC5D0\uC11C Service Registry\uB97C \uAC00\uC838\uC624\uB3C4\uB85D \uC124\uC815
+    fetch-registry: true
+    # Eureka Server\uC5D0 \uD574\uB2F9 \uC778\uC2A4\uD134\uC2A4\uB97C \uB4F1\uB85D\uD558\uB3C4\uB85D \uC124\uC815
+    register-with-eureka: true
+    service-url:
+      # Eureka Server\uC758 \uAE30\uBCF8 URL \uC124\uC815
+      defaultZone: http://localhost:8761/eureka
