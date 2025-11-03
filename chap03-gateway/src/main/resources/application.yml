@@ -1,0 +1,30 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: lb://SWCAMP-USER-SERVICE
+              predicates:
+                - Path=/api/v1/user-service/**
+              filters:
+                - RewritePath=/api/v1/user-service/(?<segment>.*), /$\{segment}
+            - id: order-service
+              uri: lb://SWCAMP-ORDER-SERVICE
+              predicates:
+                - Path=/api/v1/order-service/**
+              filters:
+                - RewritePath=/api/v1/order-service/(?<segment>.*), /$\{segment}
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+jwt:
+  secret: BMy11e2DJ8kQ3yarTTTfLb1nWaQRW+xdcLSlZVKsrgvnp89M4WK6tymHE0NpSx5AYuHc6JhbgEnWL5Sl/RpCWg==
