@@ -7,6 +7,5 @@ spring:
         git:
           uri: file:/Users/minwook/Downloads/config
 
-
 server:
   port: 8888
