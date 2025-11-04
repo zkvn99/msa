@@ -35,3 +35,10 @@ mybatis:
 #  secret: BMy11e2DJ8kQ3yarTTTfLb1nWaQRW+xdcLSlZVKsrgvnp89M4WK6tymHE0NpSx5AYuHc6JhbgEnWL5Sl/RpCWg==
 #  expiration: 1800000
 #  refresh-expiration: 604800000
+
+# Actuator 의 엔드 포인트 노출 여부 제어
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, beans, httpexchanges
